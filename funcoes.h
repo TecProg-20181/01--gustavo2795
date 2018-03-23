@@ -164,6 +164,9 @@ Image filtro_sepia(Image imagem){
 
 /*Função que lê os valores contidos nos arquivos de entrada.*/
 Image ler_arquivo_entrada(Image imagem){
+  // Lendo o Tipo da Imagem. O tipo P3 é relacionado ao tipo ppm.
+  char p3[4];
+  scanf("%s", p3);
   // ler largura, altura e cor_máxima da imagem.
   scanf("%u %u %d", &imagem.largura, &imagem.altura, &cor_maxima);
 

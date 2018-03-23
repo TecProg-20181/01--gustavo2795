@@ -5,10 +5,6 @@
 int main() {
   Image imagem;
 
-  // Lendo o Tipo da Imagem. O tipo P3 é relacionado ao tipo ppm.
-  char p3[4];
-  scanf("%s", p3);
-
   imagem = ler_arquivo_entrada(imagem);
 
   int numero_opcoes;
