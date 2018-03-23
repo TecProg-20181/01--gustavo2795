@@ -209,23 +209,23 @@ Image espelhamento_vertical(Image imagem){
 
   for (int linha = 0; linha < altura; ++linha){
     for (int coluna = 0; coluna < largura; ++coluna){
-      int x = linha;
-      int y = coluna;
-      if (horizontal == 1) y = imagem.largura - 1 - coluna;
-      else x = imagem.altura - 1 - linha;
+      int nova_linha = linha;
+      int nova_coluna = coluna;
+      if (horizontal == 1) nova_coluna = imagem.largura - 1 - coluna;
+      else nova_linha = imagem.altura - 1 - linha;
 
       Pixel aux1;
       aux1.r = imagem.pixel[linha][coluna][0];
       aux1.g = imagem.pixel[linha][coluna][1];
       aux1.b = imagem.pixel[linha][coluna][2];
 
-      imagem.pixel[linha][coluna][0] = imagem.pixel[x][y][0];
-      imagem.pixel[linha][coluna][1] = imagem.pixel[x][y][1];
-      imagem.pixel[linha][coluna][2] = imagem.pixel[x][y][2];
+      imagem.pixel[linha][coluna][0] = imagem.pixel[nova_linha][nova_coluna][0];
+      imagem.pixel[linha][coluna][1] = imagem.pixel[nova_linha][nova_coluna][1];
+      imagem.pixel[linha][coluna][2] = imagem.pixel[nova_linha][nova_coluna][2];
 
-      imagem.pixel[x][y][0] = aux1.r;
-      imagem.pixel[x][y][1] = aux1.g;
-      imagem.pixel[x][y][2] = aux1.b;
+      imagem.pixel[nova_linha][nova_coluna][0] = aux1.r;
+      imagem.pixel[nova_linha][nova_coluna][1] = aux1.g;
+      imagem.pixel[nova_linha][nova_coluna][2] = aux1.b;
     }
   }
   return imagem;
