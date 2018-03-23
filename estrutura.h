@@ -10,13 +10,13 @@ typedef struct _pixel {
 } Pixel;
 
 typedef struct _image {
-    // [width][height][rgb]
+    // [largura][altura][rgb]
     // 0 -> r
     // 1 -> g
     // 2 -> b
     unsigned short int pixel[512][512][3];
-    unsigned int w;
-    unsigned int h;
+    unsigned int largura;
+    unsigned int altura;
 } Image;
 
 #endif
