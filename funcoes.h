@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include "estrutura.h"
 
+int max_color;
+
 Image escala_de_cinza(Image img) {
     for (unsigned int i = 0; i < img.h; ++i) {
         for (unsigned int j = 0; j < img.w; ++j) {
@@ -118,7 +120,6 @@ Image filtro_sepia(Image img) {
 
 Image ler_arquivo_entrada(Image img){
   // ler largura, altura e cor_máxima da imagem.
-  int max_color;
   scanf("%u %u %d", &img.w, &img.h, &max_color);
 
   // read all pixels of image
@@ -131,6 +132,23 @@ Image ler_arquivo_entrada(Image img){
     }
   }
   return img;
+}
+
+void printa_imagem(Image img, int max_color){
+  printf("P3\n");
+  // print width height and color of image
+  printf("%u %u\n%d\n", img.w, img.h, max_color);
+
+  // print pixels of image
+  for (unsigned int i = 0; i < img.h; ++i) {
+      for (unsigned int j = 0; j < img.w; ++j) {
+          printf("%hu %hu %hu ", img.pixel[i][j][0],
+                                 img.pixel[i][j][1],
+                                 img.pixel[i][j][2]);
+
+      }
+      printf("\n");
+  }
 }
 
 #endif
