@@ -116,4 +116,21 @@ Image filtro_sepia(Image img) {
   return img;
 }
 
+Image ler_arquivo_entrada(Image img){
+  // ler largura, altura e cor_máxima da imagem.
+  int max_color;
+  scanf("%u %u %d", &img.w, &img.h, &max_color);
+
+  // read all pixels of image
+  for (unsigned int i = 0; i < img.h; ++i) {
+    for (unsigned int j = 0; j < img.w; ++j) {
+      scanf("%hu %hu %hu", &img.pixel[i][j][0],
+                          &img.pixel[i][j][1],
+                          &img.pixel[i][j][2]);
+
+    }
+  }
+  return img;
+}
+
 #endif

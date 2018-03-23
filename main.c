@@ -9,19 +9,7 @@ int main() {
   char p3[4];
   scanf("%s", p3);
 
-  // read width height and color of image
-  int max_color;
-  scanf("%u %u %d", &img.w, &img.h, &max_color);
-
-  // read all pixels of image
-  for (unsigned int i = 0; i < img.h; ++i) {
-    for (unsigned int j = 0; j < img.w; ++j) {
-      scanf("%hu %hu %hu", &img.pixel[i][j][0],
-                          &img.pixel[i][j][1],
-                          &img.pixel[i][j][2]);
-
-    }
-  }
+  img = ler_arquivo_entrada(img);
 
   int n_opcoes;
   scanf("%d", &n_opcoes);
