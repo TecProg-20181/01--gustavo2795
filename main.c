@@ -1,28 +1,7 @@
 #include <stdio.h>
-
-typedef struct _pixel {
-    unsigned short int r;
-    unsigned short int g;
-    unsigned short int b;
-} Pixel;
-
-typedef struct _image {
-    // [width][height][rgb]
-    // 0 -> r
-    // 1 -> g
-    // 2 -> b
-    unsigned short int pixel[512][512][3];
-    unsigned int w;
-    unsigned int h;
-} Image;
+#include "estrutura.h" //Include das estruturas Imagem e Pixel.
 
 Image escala_de_cinza(Image img) {
-    /*for (unsigned int i = 0; i < img.h; ++i) {
-        for (unsigned int j = 0; j < img.w; ++j) {
-            print("%u", img.pixel[i][j][0] + img.pixel[i][j][1] + img.pixel[i][j][2]);
-        }
-    }*/
-
     for (unsigned int i = 0; i < img.h; ++i) {
         for (unsigned int j = 0; j < img.w; ++j) {
             int media = img.pixel[i][j][0] +
