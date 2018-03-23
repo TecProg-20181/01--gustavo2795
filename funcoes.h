@@ -12,6 +12,9 @@
 //Variável Global que armazena a cor máxima de um Pixel.
 int cor_maxima;
 
+/*As variáveis "linha" e "coluna" são auxiliares para percorrerem a matriz
+de números da imagem.*/
+
 /*Função que manipula pixel à pixel para torná-los na escala de cinza,
 através da média dos valores entre eles.*/
 Image escala_de_cinza(Image imagem){
@@ -30,6 +33,8 @@ Image escala_de_cinza(Image imagem){
   return imagem;
 }
 
+/*A função BLUR também muda o valor de cada pixel da imagem para deixá-la com
+um aspecto 'borrado'. O cálculo também envolve a média entre os pixels próximos.*/
 void blur(unsigned int altura, unsigned short int pixel[LARGURA_MAXIMA][ALTURA_MAXIMA][3],
           int tamanho, unsigned int largura){
   for (unsigned int linha = 0; linha < altura; ++linha){
@@ -68,6 +73,7 @@ void blur(unsigned int altura, unsigned short int pixel[LARGURA_MAXIMA][ALTURA_M
   }
 }
 
+/*Função que troca os pixels de posição sem alterar os valores.*/
 Image rotacionar90direita(Image imagem){
   Image rotacionada;
 
@@ -85,6 +91,8 @@ Image rotacionar90direita(Image imagem){
   return rotacionada;
 }
 
+/*Função que inverte os valores dos pixels para obter o efeito 'negativo' na
+imagem.*/
 void inverter_cores(unsigned short int pixel[LARGURA_MAXIMA][ALTURA_MAXIMA][3],
                     unsigned int largura, unsigned int altura){
   for (unsigned int linha = 0; linha < altura; ++linha){
@@ -96,6 +104,7 @@ void inverter_cores(unsigned short int pixel[LARGURA_MAXIMA][ALTURA_MAXIMA][3],
   }
 }
 
+/*Função que recebe como parâmetro nova altura e largura e executa o corte.*/
 Image cortar_imagem(Image imagem, int nova_largura, int nova_altura,
                     int largura_original, int altura_original){
   Image cortada;
@@ -116,6 +125,7 @@ Image cortar_imagem(Image imagem, int nova_largura, int nova_altura,
   return cortada;
 }
 
+/*Função que compara um valor passado com o valor máximo(255).*/
 int verifica_valor_pixel(int valor){
   if (VALOR_MAXIMO_PIXEL > valor){
     return valor;
@@ -125,6 +135,8 @@ int verifica_valor_pixel(int valor){
   }
 }
 
+/*Função que altera os valores de cada pixel para obter um efeito 'envelhecido'
+na imagem.*/
 Image filtro_sepia(Image imagem){
   for (unsigned int linha = 0; linha < imagem.altura; ++linha){
     for (unsigned int coluna = 0; coluna < imagem.largura; ++coluna){
@@ -150,6 +162,7 @@ Image filtro_sepia(Image imagem){
   return imagem;
 }
 
+/*Função que lê os valores contidos nos arquivos de entrada.*/
 Image ler_arquivo_entrada(Image imagem){
   // ler largura, altura e cor_máxima da imagem.
   scanf("%u %u %d", &imagem.largura, &imagem.altura, &cor_maxima);
